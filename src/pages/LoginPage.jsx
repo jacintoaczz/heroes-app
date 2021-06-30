@@ -1,5 +1,5 @@
 import React from "react";
 
-export const MarvelPage = () => {
+export const LoginPage = () => {
   return <div></div>;
 };
