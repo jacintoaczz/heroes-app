@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const HeroCard = ({
   id,
@@ -10,18 +11,31 @@ export const HeroCard = ({
 }) => {
   return (
     <div className="col">
-      <div class="card">
-        <img
-          src={`assets/heroes/${id}.jpg`}
-          class="card-img-top"
-          alt={`${superhero}__image`}
-        />
-        <div class="card-body">
-          <h5 class="card-title">{superhero}</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
+      <div className="card" style={{ maxWidth: 540 }}>
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              src={`assets/heroes/${id}.jpg`}
+              className="img-fluid rounded-start"
+              alt={`${superhero}__image`}
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">{superhero}</h5>
+              <p className="card-text">{alter_ego}</p>
+
+              {alter_ego !== characters && (
+                <p className="card-text">{characters}</p>
+              )}
+
+              <p className="text-muted">{first_appearance}</p>
+
+              <Link className="btn btn-outline-primary" to={`/hero/${id}`}>
+                Más...
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
