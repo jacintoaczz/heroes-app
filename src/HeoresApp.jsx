@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./HeroesApp.css";
 
+import { AppRouter } from "./routers/AppRouter";
+
 export const HeroesApp = () => {
   return (
     <>
-      <h1>Heroes App</h1>
+      <AppRouter />
     </>
   );
 };
