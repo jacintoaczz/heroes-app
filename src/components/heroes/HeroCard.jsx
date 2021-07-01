@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const HeroCard = ({
   id,
   superhero,
-  publisher,
   alter_ego,
   first_appearance,
   characters,
@@ -31,7 +30,7 @@ export const HeroCard = ({
 
               <p className="text-muted">{first_appearance}</p>
 
-              <Link className="btn btn-outline-primary" to={`/hero/${id}`}>
+              <Link className="btn btn-outline-primary" to={`./hero/${id}`}>
                 Más...
               </Link>
             </div>
