@@ -11,12 +11,15 @@ export const LoginPage = ({ history }) => {
   const { dispatch } = useContext(AuthContext);
 
   const handleLogin = () => {
+    const lastPath = localStorage.getItem("lastPath") || "/";
+
     const loginAction = {
       type: types.authLogin,
       payload: user,
     };
+
     dispatch(loginAction);
-    history.replace("/");
+    history.replace(lastPath);
   };
 
   return (
