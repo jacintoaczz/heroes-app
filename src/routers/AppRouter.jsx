@@ -1,18 +1,31 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Navbar } from "../components/Navbar";
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import { LoginPage } from "../pages/LoginPage";
 import { DashboardRouter } from "./DashboardRouter";
+import { PrivateRouter } from "./guards/PrivateRouter";
+import { PublicRouter } from "../routers/guards/PublicRouter";
+
+import { AuthContext } from "../auth/AuthContext";
 
 export const AppRouter = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <Router>
       <div>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/login" component={LoginPage} />
-          <Route path="/" component={DashboardRouter} />
+          <PublicRouter
+            path="/login"
+            component={LoginPage}
+            isAuthenticated={user.logged}
+          />
+
+          <PrivateRouter
+            path="/"
+            component={DashboardRouter}
+            isAuthenticated={user.logged}
+          />
         </Switch>
       </div>
     </Router>
