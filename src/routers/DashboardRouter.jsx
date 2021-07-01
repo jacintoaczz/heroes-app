@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { MarvelPage } from "../pages/MarvelPage";
 import { DCPage } from "../pages/DCPage";
@@ -14,7 +14,7 @@ export const DashboardRouter = () => {
         <Switch>
           <Route exact path="/marvel" component={MarvelPage} />
           <Route exact path="/dc" component={DCPage} />
-          <Route exact path="/heroe/:heroeId" component={HeroPage} />
+          <Route exact path="/hero/:heroId" component={HeroPage} />
 
           <Redirect to="/marvel" />
         </Switch>
